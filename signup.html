@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup - Student Performance Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="page-container">
+    <a href="login.html" class="top-right-link">← Go to Login</a>
+
+    <div class="login-card">
+      <img src="media/logo.png" alt="Logo" class="logo-icon" />
+
+      <h1 class="title">Create an Account</h1>
+      <p class="subtitle">Sign up to get started.</p>
+
+      <form class="login-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john.doe@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required />
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required />
+        </div>
+
+        <div class="form-group">
+          <label for="signup-role">Signup as</label>
+          <select id="signup-role" name="role">
+            <option value="student" selected>Student</option>
+            <option value="lecturer">Lecturer</option>
+            <option value="stakeholder">Stakeholder</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <button type="submit" class="login-btn">Create Account</button>
+      </form>
+
+      <p class="signup-prompt">
+        Already have an account? <a href="login.html">Login</a>
+      </p>
+
+      <p class="terms">
+        By signing up, you agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
