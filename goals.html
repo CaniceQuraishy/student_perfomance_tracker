@@ -21,7 +21,7 @@
       <a href="student_dashboard.html" class="sidebar-item">🏠 Dashboard</a>
       <a href="goals.html" class="sidebar-item active">🎯 Goal Setting</a>
       <a href="#" class="sidebar-item">💬 Feedback</a>
-      <a href="#" class="sidebar-item">📘 Course Registration</a>
+      <a href="#" class="sidebar-item">📘 Unit Registration</a>
     </nav>
 
     <div class="sidebar-footer">
@@ -63,17 +63,31 @@
         <!-- Goal Setting Grid -->
     <div class="goal-grid">
 
-      <!-- Left Column: Add Goal Form -->
-      <div class="goal-form-section section-card">
-        <h2 class="form-title">Set a New Academic Goal</h2>
-        <p class="section-subtitle">Define your targets for assessments.</p>
-        <form class="goal-form">
-          <input type="text" placeholder="Assessment Title (e.g. Midterm - CS101)" required />
-          <input type="number" placeholder="Target Score (%)" required />
-          <input type="date" required />
-          <button type="submit">➕ Add Goal</button>
-        </form>
-      </div>
+<!-- Left Column: Add Goal Form -->
+<div class="goal-form-section section-card">
+  <h2 class="form-title">Add New Goal</h2>
+  <p class="section-subtitle">Define your targets for assessments this semester.</p>
+  <form class="goal-form">
+    <select required>
+      <option value="" disabled selected>Select Unit</option>
+      <option value="CS101">CS101 - Computer Science</option>
+      <option value="MKT200">MKT200 - Marketing</option>
+      <option value="JAV105">JAV105 - Java Basics</option>
+    </select>
+
+    <select required>
+      <option value="" disabled selected>Select Assessment</option>
+      <option value="midterm">CAT 1</option>
+      <option value="final">LAB 1</option>
+      <option value="project">LAB 2</option>
+      <option value="quiz">CAT 2</option>
+    </select>
+
+    <input type="number" placeholder="Input Target Score" required />
+    <button type="submit">Add Goal</button>
+  </form>
+</div>
+
 
       <!-- Right Column: Goal List -->
       <div class="goal-table-section section-card">

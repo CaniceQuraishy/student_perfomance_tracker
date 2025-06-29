@@ -345,6 +345,25 @@ body {
   }
 }
 
-  .section-subtitle {
-    font-size: 13px;
-  }
+.section-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.goal-form select,
+.goal-form input {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border 0.2s ease;
+  background-color: #fff;
+  color: #333;
+}
+
+.goal-form select:focus {
+  border-color: #4A5A9C;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 90, 156, 0.1);
+}
