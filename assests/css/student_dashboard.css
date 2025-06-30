@@ -1,0 +1,118 @@
+/* --- Dashboard Layout Grid --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+/* --- Courses Section --- */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.course-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  overflow: hidden;
+  /* Override margin from .section-card since these are nested */
+  margin-bottom: 0; 
+}
+
+.course-image {
+  height: 100px;
+  background: linear-gradient(45deg, #6c5ce7, #a29bfe);
+}
+.course-calc { background: linear-gradient(45deg, #00cec9, #81ecec); }
+.course-writing { background: linear-gradient(45deg, #fdcb6e, #e17055); }
+
+.course-content { padding: 16px; }
+.course-title { font-size: 16px; font-weight: 600; }
+.course-meta { font-size: 13px; color: #6b7280; margin-bottom: 8px; }
+.course-description { font-size: 13px; color: #4b5563; margin-bottom: 12px; }
+.course-button {
+  width: 100%;
+  padding: 8px;
+  background: #4A5A9C;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.course-button:hover { background: #3b4a8c; }
+
+/* --- Dashboard's Goals Table & Progress Bars --- */
+.goals-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.goals-table th, .goals-table td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.progress-wrapper { display: flex; align-items: center; gap: 8px; }
+.progress-bar { width: 60px; height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 4px; }
+.progress-90 { background: #10b981; width: 90%; }
+.progress-70 { background: #f59e0b; width: 70%; }
+.progress-66 { background: #ef4444; width: 66%; }
+
+.add-goal-btn {
+  background: #4A5A9C;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;    
+  display: inline-block; 
+  text-align: center;
+}
+
+/* --- Peer Accountability Section --- */
+.search-peer-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+}
+.search-peer-input:focus { outline: none; border-color: #4A5A9C; box-shadow: 0 0 0 1px #4A5A9C; }
+
+.peer { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.avatar-circle { width: 32px; height: 32px; background: #e0e7ff; color: #4A5A9C; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+
+/* --- Stakeholder Invite Form --- */
+.invite-form { display: flex; flex-direction: column; gap: 12px; }
+.invite-input { padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; }
+.invite-input:focus { outline: none; border-color: #4A5A9C; box-shadow: 0 0 0 1px #4A5A9C; }
+.send-invite-btn {
+  width: 100%;
+  background: #4A5A9C;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* --- Page-Specific Responsive --- */
+@media (max-width: 1024px) {
+  .dashboard-grid, .course-grid {
+    grid-template-columns: 1fr;
+  }
+}
