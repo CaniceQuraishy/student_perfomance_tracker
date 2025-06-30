@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f5f7fa;
@@ -29,26 +30,29 @@ body {
   z-index: 1000;
 }
 
-
 .sidebar-header {
   text-align: center;
   margin-bottom: 2rem;
 }
+
 .sidebar-logo {
   width: 48px;
   height: 48px;
   margin-bottom: 0.5rem;
 }
+
 .sidebar h2 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #4A5A9C;
 }
+
 .sidebar-menu {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
 .sidebar-item {
   display: block;
   padding: 0.75rem 1rem;
@@ -59,14 +63,17 @@ body {
   border-radius: 8px;
   transition: all 0.2s ease-in-out;
 }
+
 .sidebar-item:hover {
   background-color: rgba(74, 90, 156, 0.08);
 }
+
 .sidebar-item.active {
   background-color: #4A5A9C;
   color: #fff;
   font-weight: 600;
 }
+
 .sidebar-footer {
   text-align: center;
   font-size: 13px;
@@ -74,6 +81,7 @@ body {
   border-top: 1px solid #eaeaea;
   padding-top: 1rem;
 }
+
 .footer-profile {
   display: flex;
   align-items: center;
@@ -81,6 +89,7 @@ body {
   gap: 12px;
   margin-top: 1rem;
 }
+
 .footer-profile img {
   width: 36px;
   height: 36px;
@@ -88,6 +97,7 @@ body {
   object-fit: cover;
   border: 2px solid #4A5A9C;
 }
+
 .footer-details {
   text-align: left;
   font-size: 13px;
@@ -100,7 +110,6 @@ body {
   padding: 32px;
 }
 
-
 /* --- Top Bar --- */
 .top-bar {
   display: flex;
@@ -109,11 +118,13 @@ body {
   margin-bottom: 24px;
   width: 100%;
 }
+
 .top-icons {
   display: flex;
   align-items: center;
   gap: 1.2rem;
 }
+
 .icon-button {
   background: none;
   border: none;
@@ -121,15 +132,18 @@ body {
   padding: 0;
   transition: transform 0.2s ease;
 }
+
 .icon-button img {
   width: 22px;
   height: 22px;
   opacity: 0.7;
 }
+
 .icon-button:hover img {
   opacity: 1;
   transform: scale(1.1);
 }
+
 .profile-pic {
   width: 32px;
   height: 32px;
@@ -137,6 +151,7 @@ body {
   overflow: hidden;
   border: 2px solid #4A5A9C;
 }
+
 .profile-pic img {
   width: 100%;
   height: 100%;
@@ -181,6 +196,7 @@ body {
   font-weight: 600;
   margin-bottom: 8px;
 }
+
 .section-subtitle {
   color: #6b7280;
   font-size: 14px;
@@ -200,6 +216,7 @@ body {
   gap: 16px;
   width: 100%;
 }
+
 .goal-form input,
 .goal-form select {
   padding: 10px 14px;
@@ -210,12 +227,14 @@ body {
   color: #333;
   width: 100%;
 }
+
 .goal-form input:focus,
 .goal-form select:focus {
   border-color: #4A5A9C;
   outline: none;
   box-shadow: 0 0 0 2px rgba(74, 90, 156, 0.1);
 }
+
 .goal-form button {
   background-color: #4A5A9C;
   color: white;
@@ -228,6 +247,7 @@ body {
   transition: background 0.2s ease;
   width: 100%;
 }
+
 .goal-form button:hover {
   background-color: #3b4a8c;
 }
@@ -243,6 +263,7 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   table-layout: auto;
 }
+
 .goal-table th,
 .goal-table td {
   padding: 12px 16px;
@@ -250,11 +271,13 @@ body {
   border-bottom: 1px solid #f0f0f0;
   word-wrap: break-word;
 }
+
 .goal-table th {
   background-color: #f9fafb;
   color: #4A5A9C;
   font-weight: 600;
 }
+
 .goal-table td:last-child {
   text-align: center;
   white-space: nowrap;
@@ -268,15 +291,46 @@ body {
   cursor: pointer;
   font-size: 16px;
   margin: 0 6px;
-  transition: transform 0.2s ease;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
+
 .edit-btn:hover {
   color: #4A5A9C;
+  background: rgba(74, 90, 156, 0.1);
   transform: scale(1.1);
 }
+
 .delete-btn:hover {
   color: #e63946;
+  background: rgba(239, 68, 68, 0.1);
   transform: scale(1.1);
+}
+
+/* --- Status Badges --- */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-met {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-not-met {
+  background: #fee2e2;
+  color: #991b1b;
 }
 
 /* --- Responsive Design --- */
@@ -316,37 +370,36 @@ body {
     flex: 1;
     text-align: left;
   }
+
   .sidebar-menu,
   .sidebar-footer {
     display: none;
   }
- .main-content {
+
+  .main-content {
     margin-left: 240px;
     padding: 16px;
     width: 100%;
   }
+
   .goal-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
   .section-card {
     padding: 16px;
   }
+
   .goal-form button {
     font-size: 14px;
     padding: 8px 12px;
   }
+
   .goal-table th,
   .goal-table td {
     font-size: 13px;
     padding: 10px 12px;
-  }
-  .goal-table {
-    font-size: 12px;
-  }
-  .goal-table th,
-  .goal-table td {
-    padding: 8px 10px;
   }
 }
 
@@ -354,53 +407,21 @@ body {
   .main-content {
     padding: 12px;
   }
+
   .welcome-section {
     padding: 20px;
   }
+
   .section-card {
     padding: 12px;
   }
+
+  .goal-table {
+    font-size: 12px;
+  }
+
+  .goal-table th,
+  .goal-table td {
+    padding: 8px 10px;
+  }
 }
-
-.table-container {
-      overflow-x: auto;
-      margin-top: 16px;
-    }
-
-    .status-badge {
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .status-met {
-      background: #d1fae5;
-      color: #065f46;
-    }
-
-    .status-pending {
-      background: #fef3c7;
-      color: #92400e;
-    }
-
-    .status-not-met {
-      background: #fee2e2;
-      color: #991b1b;
-    }
-
-    .edit-btn, .delete-btn {
-      padding: 4px 8px;
-      border-radius: 4px;
-      transition: all 0.2s ease;
-    }
-
-    .edit-btn:hover {
-      background: rgba(74, 90, 156, 0.1);
-    }
-
-    .delete-btn:hover {
-      background: rgba(239, 68, 68, 0.1);
-    }
