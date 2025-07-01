@@ -1,31 +1,37 @@
-// Script for signup form validation, now connected to the PHP backend.
+// This script handles all client-side validation for the signup form.
 document.addEventListener('DOMContentLoaded', () => {
 
-    // All your existing element selections are correct.
+    // Grab all the form elements we'll need to work with.
     const form = document.getElementById('signupForm');
     const nameInput = document.getElementById('name');
+    const usernameInput = document.getElementById('username'); 
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirm-password');
-    const submitBtn = document.getElementById('submitBtn'); // Added this to disable the button
+    const submitBtn = document.getElementById('submitBtn');
     
-    // --- Helper functions for UI feedback (These are correct and unchanged) ---
+    // --- Helper functions for showing and hiding validation errors ---
+
     const showError = (input, message) => {
         const formGroup = input.closest('.form-group');
         const errorElement = formGroup.querySelector('.error-message');
+        
         errorElement.innerText = message;
         errorElement.classList.add('visible');
         input.classList.add('invalid');
     };
+
     const hideError = (input) => {
         const formGroup = input.closest('.form-group');
         const errorElement = formGroup.querySelector('.error-message');
+
         errorElement.innerText = '';
         errorElement.classList.remove('visible');
         input.classList.remove('invalid');
     };
 
-    // --- Validation logic for each input field (These are correct and unchanged) ---
+    // --- Validation logic for each input field ---
+
     const validateName = () => {
         if (nameInput.value.trim() === '') {
             showError(nameInput, 'Full Name is required.');
@@ -34,6 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
         hideError(nameInput);
         return true;
     };
+    
+    // New validation function for the username field.
+    const validateUsername = () => {
+        if (usernameInput.value.trim() === '') {
+            showError(usernameInput, 'Username (ID) is required.');
+            return false;
+        }
+        // We could add more checks here later, like for length or format.
+        hideError(usernameInput);
+        return true;
+    };
+
     const validateEmail = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(emailInput.value)) {
@@ -43,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hideError(emailInput);
         return true;
     };
+
     const validatePassword = () => {
         if (passwordInput.value.length < 8) {
             showError(passwordInput, 'Password must be at least 8 characters long.');
@@ -51,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hideError(passwordInput);
         return true;
     };
+
     const validateConfirmPassword = () => {
         if (confirmPasswordInput.value !== passwordInput.value) {
             showError(confirmPasswordInput, 'Passwords do not match.');
@@ -64,8 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     };
 
-    // --- Event Listeners (These are correct and unchanged) ---
+    // --- Event Listeners to provide real-time feedback ---
+
     nameInput.addEventListener('input', validateName);
+    usernameInput.addEventListener('input', validateUsername); // Added listener for the username field
     emailInput.addEventListener('input', validateEmail);
     passwordInput.addEventListener('input', () => {
         validatePassword();
@@ -73,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     confirmPasswordInput.addEventListener('input', validateConfirmPassword);
 
-    // Logic for our custom image icon toggle (This is correct and unchanged)
+    // This handles the show/hide toggle for our password fields.
     form.addEventListener('click', (event) => {
         if (event.target.classList.contains('password-toggle-icon')) {
             const icon = event.target;
@@ -88,44 +110,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- REPLACED: This is the new, functional form submission handler ---
+    // --- Final form submission handler ---
     form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevents the page from reloading.
+        event.preventDefault();
 
-        // Run all checks one last time before submitting.
-        const isFormValid = validateName() && validateEmail() && validatePassword() && validateConfirmPassword();
+        // Run all validation checks one last time before we send anything to the server.
+        const isFormValid = validateName() && validateUsername() && validateEmail() && validatePassword() && validateConfirmPassword();
 
         if (isFormValid) {
-            // Disable the button to prevent multiple submissions.
             submitBtn.disabled = true;
             submitBtn.textContent = 'Creating Account...';
 
-            // Use the Fetch API to send the form data to our PHP script.
+            // Send the form data to our PHP script.
             fetch('api/signup.php', {
                 method: 'POST',
-                body: new FormData(form) // FormData packages the form data for us.
+                body: new FormData(form)
             })
-            .then(response => response.json()) // We expect a JSON response from PHP.
+            .then(response => response.json())
             .then(data => {
-                // The server has responded with data.
+                // Handle the response from the server.
                 if (data.success) {
-                    // It worked!
                     alert(data.message);
-                    // Redirect to the login page after success.
                     window.location.href = 'index.html'; 
                 } else {
-                    // The server reported an error.
                     alert('Signup Failed: ' + data.message);
                 }
             })
             .catch(error => {
-                // This catches network issues (e.g., server is down).
                 console.error('Submission error:', error);
                 alert('An unexpected network error occurred. Please try again.');
             })
             .finally(() => {
-                // This code runs whether the fetch succeeded or failed.
-                // Re-enable the button so the user can try again if there was an error.
+                // Re-enable the button, regardless of the outcome.
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Create Account';
             });

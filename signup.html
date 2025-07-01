@@ -19,42 +19,51 @@
       <h1 class="title">Create an Account</h1>
       <p class="subtitle">Sign up to get started.</p>
 
+      <!-- Main form for user registration. 'novalidate' stops the browser's default validation tooltips. -->
       <form class="login-form" id="signupForm" novalidate>
         
+        <!-- Field for the user's full name, for display purposes. -->
         <div class="form-group">
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="John Doe" required />
           <p class="error-message"></p>
         </div>
 
+        <!-- Field for the unique username, which will be their official ID. -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Student/Staff ID" required />
+          <p class="error-message"></p>
+        </div>
+
+        <!-- Field for the user's email, for contact and password resets. -->
         <div class="form-group">
           <label for="email">Email Address</label>
           <input type="email" id="email" name="email" placeholder="john.doe@example.com" required />
           <p class="error-message"></p>
         </div>
 
-        <!-- Password field with our custom image icon -->
+        <!-- Field for the user's password, with a toggle icon. -->
         <div class="form-group">
           <label for="password">Password</label>
           <div class="password-container">
             <input type="password" id="password" name="password" placeholder="••••••••" required />
-            <!-- Changed span to img, added src and alt attributes -->
             <img src="assests/media/eye.png" alt="Toggle password visibility" class="password-toggle-icon" />
           </div>
           <p class="error-message"></p>
         </div>
 
-        <!-- Confirm Password field with our custom image icon -->
+        <!-- Field to confirm the password. -->
         <div class="form-group">
           <label for="confirm-password">Confirm Password</label>
           <div class="password-container">
             <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required />
-            <!-- Changed span to img, added src and alt attributes -->
             <img src="assests/media/eye.png" alt="Toggle password visibility" class="password-toggle-icon" />
           </div>
           <p class="error-message"></p>
         </div>
 
+        <!-- Dropdown to select the user's role. -->
         <div class="form-group">
           <label for="signup-role">Signup as</label>
           <select id="signup-role" name="role">
@@ -74,6 +83,7 @@
     </div>
   </div>
 
+  <!-- Linking our JS file at the end of the body ensures the HTML is loaded first. -->
   <script src="assests/js/signup.js" defer></script>
 </body>
 </html>
