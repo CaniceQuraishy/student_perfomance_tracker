@@ -4,61 +4,56 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Student Performance Tracker</title>
-    <link rel="stylesheet" href="assests/css/login.css" />
-    <link rel="icon" type="logo.png" href="assests/media/logo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- We'll reuse the signup.css styles since the forms are so similar. -->
+    <link rel="stylesheet" href="assests/css/signup.css" />
+    <link rel="icon" type="image/png" href="assests/media/logo.png" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
     <div class="page-container">
-        
         <a href="signup.html" class="top-right-link">← Go to Signup</a>
 
         <div class="login-card">
             <img src="assests/media/logo.png" alt="Logo" class="logo-icon" />
 
-            <h1 class="title">Welcome Back to Student Performance Tracker</h1>
+            <h1 class="title">Welcome Back</h1>
             <p class="subtitle">Login to your account.</p>
 
-            <form class="login-form">
+            <!-- Updated form with an ID and novalidate attribute. -->
+            <form class="login-form" id="loginForm" novalidate>
+                
+                <!-- Changed from email to username. -->
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="john.doe@example.edu" />
+                    <label for="username">Username (Student/Staff ID)</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your ID" required />
+                    <p class="error-message"></p>
                 </div>
 
+                <!-- Added password container and toggle icon. -->
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="••••••••" />
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" placeholder="••••••••" required />
+                        <img src="assests/media/eye.png" alt="Toggle password visibility" class="password-toggle-icon" />
+                    </div>
+                    <p class="error-message"></p>
                 </div>
 
-                <div class="form-group">
-                    <label for="login-as">Login as</label>
-                    <select id="login-as" name="role">
-                        <option value="student" selected>Student</option>
-                        <option value="lecturer">Lecturer</option>
-                        <option value="stakeholder">Stakeholder</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
+                <!-- The "Login as" role selector has been removed for better security. -->
 
                 <a href="#" class="forgot-password">Forgot password?</a>
 
-                <button type="submit" class="login-btn">Login</button>
+                <button type="submit" class="login-btn" id="submitBtn">Login</button>
             </form>
 
             <p class="signup-prompt">
                 Don't have an account? <a href="signup.html">Sign Up</a>
             </p>
-
-            <p class="terms">
-                By logging in or signing up using the options above, you agree to Student
-                Performance Tracker's <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.
-            </p>
         </div>
-
     </div>
 
+    <!-- We'll create this new JavaScript file in the next step. -->
+    <script src="assests/js/login.js" defer></script>
 </body>
 </html>

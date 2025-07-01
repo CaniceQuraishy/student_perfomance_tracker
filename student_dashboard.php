@@ -1,3 +1,4 @@
+<?php require_once 'api/auth_check.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +25,7 @@
       <a href="feedback.html" class="sidebar-item">💬 Feedback</a>
       <a href="peer_accountability.html" class="sidebar-item">👫 Peer Accountability</a>
       <a href="unit_registration.html" class="sidebar-item">📘 Unit Registration</a>
+      <a href="api/logout.php" class="sidebar-item">Logout</a> <!-- New Logout Link -->
     </nav>
 
     <div class="sidebar-footer">
@@ -59,8 +61,8 @@
 
     <!-- Welcome -->
     <section class="welcome-section">
-      <h1>Welcome, Jane Doe!</h1>
-      <p>Your central hub for academic success. Track goals, register units, and stay informed.</p>
+      <h1>Welcome, <?php echo htmlspecialchars($_SESSION['full_name']); ?>!</h1>
+        <p>Your central hub for academic success. Track goals, register units, and stay informed.</p>
     </section>
 
     <!-- Dashboard Grid -->
