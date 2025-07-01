@@ -4,6 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Signup - Student Performance Tracker</title>
+  <link rel="stylesheet" href="assests/css/styles.css" />
   <link rel="stylesheet" href="assests/css/signup.css" />
   <link rel="icon" type="image/png" href="assests/media/logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -20,43 +21,40 @@
 
       <form class="login-form" id="signupForm" novalidate>
         
-        <!-- Field for Full Name -->
         <div class="form-group">
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="John Doe" required />
           <p class="error-message"></p>
         </div>
 
-        <!-- Field for Email -->
         <div class="form-group">
           <label for="email">Email Address</label>
           <input type="email" id="email" name="email" placeholder="john.doe@example.com" required />
           <p class="error-message"></p>
         </div>
 
-        <!-- Field for Password -->
+        <!-- Password field with our custom image icon -->
         <div class="form-group">
           <label for="password">Password</label>
-          <!-- This container correctly holds one input and its one toggle icon -->
           <div class="password-container">
             <input type="password" id="password" name="password" placeholder="••••••••" required />
-            <span class="password-toggle-icon">👁️</span>
+            <!-- Changed span to img, added src and alt attributes -->
+            <img src="assests/media/eye.png" alt="Toggle password visibility" class="password-toggle-icon" />
           </div>
           <p class="error-message"></p>
         </div>
 
-        <!-- Field for Confirm Password -->
+        <!-- Confirm Password field with our custom image icon -->
         <div class="form-group">
           <label for="confirm-password">Confirm Password</label>
-          <!-- This container correctly holds the second input and its one toggle icon -->
           <div class="password-container">
             <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required />
-            <span class="password-toggle-icon">👁️</span>
+            <!-- Changed span to img, added src and alt attributes -->
+            <img src="assests/media/eye.png" alt="Toggle password visibility" class="password-toggle-icon" />
           </div>
           <p class="error-message"></p>
         </div>
 
-        <!-- Role Selection -->
         <div class="form-group">
           <label for="signup-role">Signup as</label>
           <select id="signup-role" name="role">

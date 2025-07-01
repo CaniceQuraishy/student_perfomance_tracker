@@ -98,18 +98,31 @@ a:hover {
     background: #fff;
 }
 
+/* This is the container for the password input and our icon. */
+.password-container {
+    position: relative;
+}
+
+/* This positions our custom icon on the right side of the input field. */
+/* This positions our custom icon on the right side of the input field. */
+.password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.6;
+    /* Add these two lines to set the size of your image icon */
+    width: 20px;
+    height: 20px;
+}
+
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
     border-color: #4A5A9C;
     box-shadow: 0 0 0 3px rgba(74, 90, 156, 0.2);
-}
-
-.forgot-password {
-    display: block;
-    text-align: right;
-    font-size: 0.875rem;
-    margin: -0.75rem 0 1.5rem;
 }
 
 .login-btn {
@@ -126,6 +139,25 @@ a:hover {
 
 .login-btn:hover {
     background: #3b4a8c;
+}
+
+/* --- Validation Feedback Styles --- */
+.error-message {
+    color: #d93025;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    min-height: 1.2em;
+    display: none;
+}
+.error-message.visible {
+    display: block;
+}
+.form-group input.invalid {
+    border-color: #d93025;
+}
+.login-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 /* --- Bottom Text --- */
@@ -152,21 +184,9 @@ a:hover {
 
 /* --- Responsive --- */
 @media (max-width: 500px) {
-    body {
-        padding: 1rem;
-        padding-top: 4rem;
-    }
-
-    .login-card {
-        padding: 2rem;
-    }
-
-    .top-right-link {
-        top: 20px;
-        right: 20px;
-    }
-
-    .title {
-        font-size: 1.3rem;
-    }
+    body { padding: 1rem; padding-top: 4rem; }
+    .login-card { padding: 2rem; }
+    .top-right-link { top: 20px; right: 20px; }
+    .title { font-size: 1.3rem; }
 }
+

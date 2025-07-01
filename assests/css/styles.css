@@ -269,3 +269,12 @@ body {
     font-size: 18px;
   }
 }
+
+/* --- Global Input Fixes --- */
+
+/* This rule hides the browser's default password reveal icon,
+   so it doesn't conflict with our custom one. */
+input::-ms-reveal,
+input::-webkit-password-reveal-button {
+    display: none;
+}
