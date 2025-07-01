@@ -94,23 +94,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     // This is the role-based redirection logic.
                     switch (data.role) {
                         case 'student':
-                            window.location.href = 'student_dashboard.html';
+                            window.location.href = 'student_dashboard.php';
                             break;
                         case 'lecturer':
                             // We can create this page later.
-                            window.location.href = 'lecturer_dashboard.html'; 
+                            window.location.href = 'lecturer_dashboard.php'; 
                             break;
                         case 'admin':
                              // We can create this page later.
-                            window.location.href = 'admin_dashboard.html';
+                            window.location.href = 'admin_dashboard.php';
                             break;
                         case 'stakeholder':
                             // We can create this page later.
-                            window.location.href = 'stakeholder_dashboard.html';
+                            window.location.href = 'stakeholder_dashboard.php';
                             break;
                         default:
                             // If the role is unknown, just go to a default page.
-                            window.location.href = 'student_dashboard.html';
+                            window.location.href = 'student_dashboard.php';
                     }
 
                 } else {
