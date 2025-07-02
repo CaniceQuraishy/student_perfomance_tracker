@@ -200,17 +200,18 @@
         <div class="section-card invites-section">
           <h2 class="section-title">Stakeholder Invites</h2>
           <p class="section-subtitle">Invite your parent/guardian or mentor to track your academic progress.</p>
-          <form class="invite-form">
-            <label>Stakeholder’s Name</label>
-            <input type="text" class="invite-input" placeholder="Enter Stakeholder’s Full Name" />
-            <label>Email</label>
-            <input type="email" class="invite-input" placeholder="Enter their email address" />
-            <button class="send-invite-btn">Send Invite</button>
+          <form class="invite-form" id="inviteForm">
+              <label for="stakeholder_name">Stakeholder’s Name</label>
+              <input type="text" id="stakeholder_name" name="stakeholder_name" class="invite-input" placeholder="Enter Stakeholder’s Name" required />
+              <label for="stakeholder_email">Email</label>
+              <input type="email" id="stakeholder_email" name="stakeholder_email" class="invite-input" placeholder="Enter their email address" required />
+              <button type="submit" class="send-invite-btn">Send Invite</button>
+              <p id="inviteResponseMessage" class="response-message"></p>
           </form>
         </div>
       </div>
     </div>
   </main>
-
+<script src="assests/js/stakeholder_invite.js" defer></script>
 </body>
 </html>
