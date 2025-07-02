@@ -290,5 +290,6 @@ input::-webkit-password-reveal-button {
 }
 
 .sidebar-item.logout-btn:hover{
-    background-color: #fecaca; /* A slightly darker red on hover */
+    background-color: #e33737; /* A slightly darker red on hover */
+    color: #ffffff;
 }
