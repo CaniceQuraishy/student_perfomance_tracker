@@ -5,7 +5,7 @@
 // This must be called before any output is sent to the browser.
 session_start();
 
-// We still need our database connection.
+// Database connection.
 require_once 'db_connect.php';
 
 // Set the response header to JSON.
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // --- 3. Find the user in the database ---
     // We use a prepared statement to safely look up the user by their username.
-    $stmt = $conn->prepare("SELECT id, full_name, password, role FROM users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT id,username, full_name, password, role FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // --- 5. Store user data in the session ---
             // This is how we "log the user in" for subsequent page loads.
             $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
             $_SESSION['full_name'] = $user['full_name'];
             $_SESSION['role'] = $user['role'];
 

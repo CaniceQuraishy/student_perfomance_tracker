@@ -190,3 +190,8 @@ a:hover {
     .title { font-size: 1.3rem; }
 }
 
+/* This is for the message after submitting the forgot password form. */
+.response-message {
+    margin-top: 1rem;
+    font-weight: 500;
+}

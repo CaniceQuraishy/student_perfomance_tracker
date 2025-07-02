@@ -87,7 +87,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: 1rem;
 }
 
 .footer-profile img {
@@ -102,6 +101,8 @@ body {
   text-align: left;
   font-size: 13px;
   color: #4A5A9C;
+  flex-grow:0.2;
+  min-width: 0; /* Prevent overflow */
 }
 
 /* --- Main Layout & Top Bar --- */
@@ -293,3 +294,4 @@ input::-webkit-password-reveal-button {
     background-color: #e33737; /* A slightly darker red on hover */
     color: #ffffff;
 }
+

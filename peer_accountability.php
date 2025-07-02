@@ -1,3 +1,4 @@
+<?php require_once 'api/auth_check.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,14 +29,14 @@
     </nav>
 
     <div class="sidebar-footer">
-      <div class="footer-profile">
-        <img src="assestsmedia/student-profile.jpg" alt="Jane Doe" />
-        <div class="footer-details">
-          <strong>Jane Doe</strong>
-          <br>
-          <span>Student</span>
+        <div class="footer-profile">
+            <img src="assests/media/student-profile.jpg" alt="<?php echo htmlspecialchars($_SESSION['full_name']); ?>" />
+            <div class="footer-details">
+                <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
+                <br>
+                <span><?php echo htmlspecialchars(ucfirst($_SESSION['role'])); ?></span>
+            </div>
         </div>
-      </div>
     </div>
   </aside>
 

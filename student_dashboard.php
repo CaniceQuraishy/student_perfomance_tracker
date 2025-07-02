@@ -29,14 +29,14 @@
     </nav>
 
     <div class="sidebar-footer">
-      <div class="footer-profile">
-        <img src="assests/media/student-profile.jpg" alt="Jane Doe" />
-        <div class="footer-details">
-          <strong>Jane Doe</strong>
-          <br>
-          <span>Student</span>
+        <div class="footer-profile">
+            <img src="assests/media/student-profile.jpg" alt="<?php echo htmlspecialchars($_SESSION['full_name']); ?>" />
+            <div class="footer-details">
+                <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
+                <br>
+                <span><?php echo htmlspecialchars(ucfirst($_SESSION['role'])); ?></span>
+            </div>
         </div>
-      </div>
     </div>
   </aside>
 
@@ -202,7 +202,7 @@
           <p class="section-subtitle">Invite your parent/guardian or mentor to track your academic progress.</p>
           <form class="invite-form">
             <label>Stakeholder’s Name</label>
-            <input type="text" class="invite-input" placeholder="Enter Stakeholder’s Name" />
+            <input type="text" class="invite-input" placeholder="Enter Stakeholder’s Full Name" />
             <label>Email</label>
             <input type="email" class="invite-input" placeholder="Enter their email address" />
             <button class="send-invite-btn">Send Invite</button>
