@@ -21,11 +21,11 @@
 
     <nav class="sidebar-menu">
       <a href="student_dashboard.php" class="sidebar-item active">🏠 Dashboard</a>
-      <a href="goals.html" class="sidebar-item">🎯 Goal Setting</a>
-      <a href="feedback.html" class="sidebar-item">💬 Feedback</a>
-      <a href="peer_accountability.html" class="sidebar-item">👫 Peer Accountability</a>
-      <a href="unit_registration.html" class="sidebar-item">📘 Unit Registration</a>
-      <a href="api/logout.php" class="sidebar-item">Logout</a> <!-- New Logout Link -->
+      <a href="goals.php" class="sidebar-item">🎯 Goal Setting</a>
+      <a href="feedback.php" class="sidebar-item">💬 Feedback</a>
+      <a href="peer_accountability.php" class="sidebar-item">👫 Peer Accountability</a>
+      <a href="unit_registration.php" class="sidebar-item">📘 Unit Registration</a>
+      <a href="api/logout.php" class="sidebar-item">Logout</a>
     </nav>
 
     <div class="sidebar-footer">
