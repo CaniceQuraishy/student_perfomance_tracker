@@ -24,6 +24,7 @@
       <a href="feedback.php" class="sidebar-item active">💬 Feedback</a>
       <a href="peer_accountability.php" class="sidebar-item">👫 Peer Accountability</a>
       <a href="unit_registration.php" class="sidebar-item">📘 Unit Registration</a>
+      <a href="api/logout.php" class="sidebar-item logout-btn">Logout</a>
     </nav>
 
     <div class="sidebar-footer">

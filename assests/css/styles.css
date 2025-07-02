@@ -278,3 +278,17 @@ input::-ms-reveal,
 input::-webkit-password-reveal-button {
     display: none;
 }
+
+/* --- Logout Link Style --- */
+
+
+
+/* We can add a slightly darker hover effect for better feedback. */
+
+.sidebar-item.logout-btn{
+    color: #7f1d1d;
+}
+
+.sidebar-item.logout-btn:hover{
+    background-color: #fecaca; /* A slightly darker red on hover */
+}
