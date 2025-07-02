@@ -45,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
                 // Server settings (make sure to update your credentials here).
                 $mail->isSMTP();
-                $mail->Host       = 'smtp.gmail.com';
+                $mail->Host       = 'YOUR_SMTP_HOST'; // e.g., smtp.gmail.com
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'musaquraishy@gmail.com'; 
+                $mail->Username   = 'YOUR_GMAIL_ADDRESS@gmail.com'; 
                 $mail->Password   = 'YOUR_API_PASSWORD'; 
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                 $mail->Port       = 465;

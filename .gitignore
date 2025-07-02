@@ -1,0 +1,5 @@
+# Ignore the Composer vendor folder
+/vendor/
+
+# Ignore the file with our secret environment variables
+.env
