@@ -63,12 +63,31 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const validatePassword = () => {
-        if (passwordInput.value.length < 8) {
-            showError(passwordInput, 'Password must be at least 8 characters long.');
-            return false;
+        const password = passwordInput.value;
+        let errorMessage = '';
+
+        // We use a regular expression to test for special characters.
+        const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{}|]/;
+
+        if (password.length < 8) {
+            errorMessage = 'Password must be at least 8 characters long.';
+        } else if (!/[A-Z]/.test(password)) {
+            errorMessage = 'Password must contain at least one uppercase letter.';
+        } else if (!/[a-z]/.test(password)) {
+            errorMessage = 'Password must contain at least one lowercase letter.';
+        } else if (!/[0-9]/.test(password)) {
+            errorMessage = 'Password must contain at least one number.';
+        } else if (!specialCharRegex.test(password)) { // <-- ADDED THIS CHECK
+            errorMessage = 'Password must contain at least one special character.';
         }
-        hideError(passwordInput);
-        return true;
+
+        if (errorMessage) {
+            showError(passwordInput, errorMessage);
+            return false;
+        } else {
+            hideError(passwordInput);
+            return true;
+        }
     };
 
     const validateConfirmPassword = () => {

@@ -28,8 +28,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+
+    $passwordError = '';
     if (strlen($password) < 8) {
-        echo json_encode(['success' => false, 'message' => 'Password must be at least 8 characters long.']);
+        $passwordError = 'Password must be at least 8 characters long.';
+    } elseif (!preg_match('/[A-Z]/', $password)) {
+        $passwordError = 'Password must contain at least one uppercase letter.';
+    } elseif (!preg_match('/[a-z]/', $password)) {
+        $passwordError = 'Password must contain at least one lowercase letter.';
+    } elseif (!preg_match('/[0-9]/', $password)) {
+        $passwordError = 'Password must contain at least one number.';
+    } elseif (!preg_match('/[!@#$%^&*()_+\-=\[\]{}|]/', $password)) { // <-- ADDED THIS LINE
+        $passwordError = 'Password must contain at least one special character.';
+    }
+
+    // Now, if there was any password error, we send the response.
+    if (!empty($passwordError)) {
+        echo json_encode(['success' => false, 'message' => $passwordError]);
         exit;
     }
     
