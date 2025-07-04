@@ -86,33 +86,39 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(response => response.json())
             .then(data => {
-                // Handle the response from the server.
+                // This is the updated block that handles the server's response.
                 if (data.success) {
-                    // --- SUCCESS! Now, we redirect based on the role. ---
-                    alert(data.message); // e.g., "Login successful!"
-
-                    // This is the role-based redirection logic.
-                    switch (data.role) {
-                        case 'student':
-                            window.location.href = 'student_dashboard.php';
-                            break;
-                        case 'lecturer':
-                            window.location.href = 'lecturer_dashboard.php'; 
-                            break;
-                        case 'stakeholder':
-                            window.location.href = 'select_student.php';
-                            break;
-                        case 'admin':
-                             // We can create this page later.
-                            window.location.href = 'admin_dashboard.php';
-                            break;
-                        default:
-                            // If the role is unknown, just go to a default page.
-                            window.location.href = 'student_dashboard.php';
+                    // Checks if a password change is required. ---
+                    // The 'requires_change' key is sent from our updated login.php.
+                    if (data.requires_change) {
+                        // If true, we immediately redirect the user to the password change page.
+                        // This happens for any role (e.g., a new stakeholder or an admin with a temporary password).
+                        window.location.href = 'change_password.php';
+                    } else {
+                        // --- Step 2: If no change is needed, proceed with normal role-based redirection. ---
+                        switch (data.role) {
+                            case 'student':
+                                window.location.href = 'student_dashboard.php';
+                                break;
+                            case 'lecturer':
+                                window.location.href = 'lecturer_dashboard.php'; 
+                                break;
+                            case 'stakeholder':
+                                // A returning stakeholder (who has already changed their password) goes here.
+                                window.location.href = 'select_student.php';
+                                break;
+                            case 'admin':
+                                // We can create this page later.
+                                window.location.href = 'admin_dashboard.php';
+                                break;
+                            default:
+                                // A fallback for any unknown roles.
+                                window.location.href = 'student_dashboard.php';
+                        }
                     }
-
                 } else {
-                    // The server reported a login error (e.g., wrong password).
+                    // This part runs if login failed (e.g., wrong username or password).
+                    // We still show the error message from the server.
                     alert('Login Failed: ' + data.message);
                 }
             })

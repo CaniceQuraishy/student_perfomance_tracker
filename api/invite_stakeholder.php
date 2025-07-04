@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $tempPassword = generateStrongPassword(); // This now calls our new function.
         $hashedPassword = password_hash($tempPassword, PASSWORD_DEFAULT);
 
-        $stmt_insert = $conn->prepare("INSERT INTO users (full_name, username, email, password, role) VALUES (?, ?, ?, ?, 'stakeholder')");
+        $stmt_insert = $conn->prepare("INSERT INTO users (full_name, username, email, password, role, force_password_change) VALUES (?, ?, ?, ?, 'stakeholder', 1)");
         $stmt_insert->bind_param("ssss", $stakeholderName, $stakeholderUsername, $stakeholderEmail, $hashedPassword);
         
         if ($stmt_insert->execute()) {

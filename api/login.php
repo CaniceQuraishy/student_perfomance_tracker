@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // --- 3. Find the user in the database ---
     // We use a prepared statement to safely look up the user by their username.
-    $stmt = $conn->prepare("SELECT id,username, full_name, password, role FROM users WHERE username = ?");
+   $stmt = $conn->prepare("SELECT id, username, full_name, password, role, force_password_change FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -50,10 +50,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Send a success response back to the JavaScript, including the user's role.
             // The JavaScript will use this role to decide where to redirect the user.
+            // This is the new success block that checks our flag
             echo json_encode([
                 'success' => true,
                 'message' => 'Login successful!',
-                'role' => $user['role'] 
+                'role' => $user['role'],
+                // We add a new key to our response. It will be true if the flag is 1, false otherwise.
+                'requires_change' => (bool)$user['force_password_change'] 
             ]);
 
         } else {
