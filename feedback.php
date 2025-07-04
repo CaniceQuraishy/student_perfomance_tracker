@@ -30,7 +30,7 @@
 
     <div class="sidebar-footer">
         <div class="footer-profile">
-            <img src="assests/media/student-profile.jpg" alt="<?php echo htmlspecialchars($_SESSION['full_name']); ?>" />
+            <img src="assests/media/student_icon.png" alt="<?php echo htmlspecialchars($_SESSION['full_name']); ?>" />
             <div class="footer-details">
                 <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
                 <br>
@@ -54,7 +54,7 @@
           <img src="assests/media/settings.png" alt="Settings" />
         </button>
         <div class="profile-pic">
-          <img src="assests/media/student-profile.jpg" alt="Profile" />
+          <img src="assests/media/student_icon.png" alt="Profile" />
         </div>
       </div>
     </div>

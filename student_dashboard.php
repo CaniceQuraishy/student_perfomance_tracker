@@ -30,7 +30,7 @@
 
     <div class="sidebar-footer">
         <div class="footer-profile">
-            <img src="assests/media/student-profile.jpg" alt="<?php echo htmlspecialchars($_SESSION['full_name']); ?>" />
+            <img src="assests/media/student_icon.png" alt="<?php echo htmlspecialchars($_SESSION['full_name']); ?>" />
             <div class="footer-details">
                 <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
                 <br>
@@ -54,7 +54,7 @@
           <img src="assests/media/settings.png" alt="Settings" />
         </button>
         <div class="profile-pic">
-          <img src="assests/media/student-profile.jpg" alt="Profile" />
+          <img src="assests/media/student_icon.png" alt="Profile" />
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@
                 <p class="course-description">An overview of computing concepts, programming fundamentals, and more.</p>
                 <button class="course-button">Enroll Now</button>
               </div>
-              <a href="unit_registration.html">Explore Registered Units</a>
+              <a href="unit_registration.php">Explore Registered Units</a>
             </div>
 
             <div class="course-card">
@@ -113,7 +113,7 @@
         <div class="section-card">
           <h2 class="section-title">Current Goals</h2>
           <p class="section-subtitle">Monitor performance and track progress.</p>
-          <a href="goals.html" class="add-goal-btn">+ Add Goal</a>
+          <a href="goals.php" class="add-goal-btn">+ Add Goal</a>
           <table class="goals-table">
             <thead>
               <tr>

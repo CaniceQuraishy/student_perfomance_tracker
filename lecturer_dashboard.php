@@ -29,7 +29,7 @@ if ($_SESSION['role'] !== 'lecturer') {
     <aside class="sidebar">
         <div class="sidebar-header">
             <img src="assests/media/logo.png" alt="SPT Logo" class="sidebar-logo" />
-            <h2>SPT - Lecturer Portal</h2>
+            <h2>SPT - Student Performance Tracker <br><br> Lecturer Portal</h2>
         </div>
 
         <!-- This is a simplified sidebar for the lecturer view. -->
@@ -42,7 +42,7 @@ if ($_SESSION['role'] !== 'lecturer') {
 
         <div class="sidebar-footer">
             <div class="footer-profile">
-                <img src="assests/media/lecturer-profile.jpg" alt="<?php echo htmlspecialchars($_SESSION['full_name']); ?>" />
+                <img src="assests/media/lecturer_icon.png" alt="<?php echo htmlspecialchars($_SESSION['full_name']); ?>" />
                 <div class="footer-details">
                     <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
                     <br>
@@ -60,7 +60,7 @@ if ($_SESSION['role'] !== 'lecturer') {
             <div class="top-icons">
                 <button class="icon-button"><img src="assests/media/bell.png" alt="Notifications" /></button>
                 <button class="icon-button"><img src="assests/media/settings.png" alt="Settings" /></button>
-                <div class="profile-pic"><img src="assests/media/lecturer-profile.jpg" alt="Profile" /></div>
+                <div class="profile-pic"><img src="assests/media/lecturer_icon.png" alt="Profile" /></div>
             </div>
         </div>
 
